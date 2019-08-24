@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Axios from 'axios';
 
 Vue.use(Vuex)
 
@@ -32,6 +33,14 @@ export default new Vuex.Store({
     inCount: (state, m) => state.count += m
   },
   actions: {
-
+    inCountAs: (context, m) => {
+      setTimeout(() => {
+        context.commit('inCount', m);
+      }, 2000);
+    },
+    async f(context) {
+      const res = await Axios.get('http://jsonplaceholder.typicode.com/todos');
+      console.log(res);
+    }
   }
 })

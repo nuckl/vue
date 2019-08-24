@@ -4,6 +4,7 @@
     <h1>{{ count }}</h1>
     <!-- <p>{{ todos }}</p> -->
     <!-- <p>{{ newTodos }}</p> -->
+    <button @click="f">huoqu</button>
   </div>
 </template>
 
@@ -18,7 +19,7 @@ export default {
   //     this.$store.commit("inCount", m);
   //   }
   // },
-  methods: mapMutations(["inCount"]),
+  // methods: mapMutations(["inCount"]),
   components: {},
   // computed: {
   //   count() {
@@ -28,7 +29,7 @@ export default {
   //     return this.$store.getters.newTodos;
   //   }
   // }
-  computed: mapGetters(["count", "newTodos"])
+  computed: mapGetters(["count", "newTodos"]),
   // computed: {
   //   count() {
   //     return this.$store.state.count;
@@ -42,6 +43,14 @@ export default {
   //   count: state => state.count
   // })
   // computed: mapState(["count", "todos"])
+  methods: {
+    inCount(m) {
+      this.$store.dispatch("inCountAs", m);
+    },
+    f() {
+      this.$store.dispatch("f");
+    }
+  }
 };
 </script>
 
