@@ -14,7 +14,7 @@ export default new Vuex.Store({
       {
         id: 2,
         title: "2",
-        comleted: false
+        comleted: true
       },
       {
         id: 3,
@@ -22,6 +22,11 @@ export default new Vuex.Store({
         comleted: false
       },
     ]
+  },
+  getters: {
+    count: state => ++state.count,
+    newTodos: state => state.todos.filter(res => res.comleted),
+    id: state => id => state.todos.find(res => res.id == id)
   },
   mutations: {
 
