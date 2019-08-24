@@ -24,12 +24,12 @@ export default new Vuex.Store({
     ]
   },
   getters: {
-    count: state => ++state.count,
+    count: state => state.count,
     newTodos: state => state.todos.filter(res => res.comleted),
-    id: state => id => state.todos.find(res => res.id == id)
+    getId: state => id => state.todos.find(res => res.id == id)
   },
   mutations: {
-
+    inCount: (state, m) => state.count += m
   },
   actions: {
 

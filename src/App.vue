@@ -1,17 +1,24 @@
 <template>
   <div id="app">
+    <button @click="inCount(2)">+</button>
     <h1>{{ count }}</h1>
     <!-- <p>{{ todos }}</p> -->
-    <p>{{ newTodos }}</p>
+    <!-- <p>{{ newTodos }}</p> -->
   </div>
 </template>
 
 <script>
 // { } 表示解构
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "app",
+  // methods: {
+  //   inCount(m) {
+  //     this.$store.commit("inCount", m);
+  //   }
+  // },
+  methods: mapMutations(["inCount"]),
   components: {},
   // computed: {
   //   count() {
